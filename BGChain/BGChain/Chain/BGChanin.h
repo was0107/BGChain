@@ -39,6 +39,16 @@ typedef void (^BGNodeBlock)(BGNode *node);
 /// 索引位置， 默认为100，值越小，执行顺序越靠前，越大越靠后
 @property (nonatomic, assign) NSInteger index;
 
+/// 链接向前可执行的步数，默认值为0,即不限制， 1则表示仅执行当前execute方法
+@property (nonatomic, assign) NSUInteger preStep;
+
+/// 链接向后可执行的步数，默认值为0,即不限制， 1则表示仅执行当前execute方法
+@property (nonatomic, assign) NSUInteger nextStep;
+
+/// Node相关信息
+@property (nonatomic, strong) NSDictionary *userInfo;
+
+
 /// 关联前后顺序的代理
 @property (nonatomic, weak) id<BGNodeProtocol> delegate;
 
@@ -78,7 +88,7 @@ typedef void (^BGNodeBlock)(BGNode *node);
  *
  *  @return self
  */
-- (id) start;
+- (id) start:(NSString *) fileName;
 
 /**
  *  开启调试模式，会打印相关日志信息
@@ -101,7 +111,8 @@ typedef void (^BGNodeBlock)(BGNode *node);
 /// 开始执行 identifier 分组下的链条
 ///  分两种情况，不带":"，则为groupIdentifier下的链路， 带":"则直接执行group和node唯一确定后的链路
 /// @param identifier 分组标示符
-- (void) runChain:(NSString *) identifier;
+/// @param info     用户附加信息
+- (void) runChain:(NSString *) identifier userInfo:(NSDictionary *) info;
 
 @end
 

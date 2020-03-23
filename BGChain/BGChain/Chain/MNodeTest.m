@@ -13,6 +13,7 @@
 - (void) execute {
     !self.block?:self.block(self);
     NSLog(@"delay 3s:%@", self);
+    self.nextStep = 1;
     [self performSelector:@selector(exeNextNode) withObject:nil afterDelay:3];
 }
 @end

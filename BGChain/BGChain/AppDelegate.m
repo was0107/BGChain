@@ -19,8 +19,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [[BGChanin sharedChain] enableDebug];
-    [[BGChanin sharedChain] start];
-    [[BGChanin sharedChain] runChain:@"pop"];
+    [[BGChanin sharedChain] start:nil];
+    [[BGChanin sharedChain] runChain:@"pop" userInfo:nil];
     return YES;
 }
 

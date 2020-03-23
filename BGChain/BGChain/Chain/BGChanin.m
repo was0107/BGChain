@@ -36,6 +36,8 @@ static BOOL G_CHAIN_NODE_DEBUG = NO;
         self.groupIdentifier = group;
         self.index = index;
         self.block = block;
+        self.preStep = 0;
+        self.nextStep = 0;
     }
     return self;
 }
@@ -47,14 +49,34 @@ static BOOL G_CHAIN_NODE_DEBUG = NO;
 - (void) exePreNode {
     if (self.delegate && [self.delegate respondsToSelector:@selector(preNode:)]) {
         BGNode *node = [self.delegate preNode:self];
-        [node execute];
+        if (self.preStep == 0) {
+            [node execute];
+        } else if (self.preStep > 0) {
+            self.preStep--;
+            if (self.preStep > 0) {
+                node.preStep = self.preStep;
+                [node execute];
+            }
+        } else {
+            self.preStep = 0;
+        }
     }
 }
 
 - (void) exeNextNode {
     if (self.delegate && [self.delegate respondsToSelector:@selector(nextNode:)]) {
         BGNode *node = [self.delegate nextNode:self];
-        [node execute];
+        if (self.nextStep == 0) {
+            [node execute];
+        } else if (self.nextStep > 0) {
+            self.nextStep--;
+            if (self.nextStep > 0) {
+                node.nextStep = self.nextStep;
+                [node execute];
+            }
+        } else {
+            self.nextStep = 0;
+        }
     }
 }
 
@@ -95,18 +117,19 @@ static BOOL G_CHAIN_NODE_DEBUG = NO;
     return self;
 }
 
-- (id) start {
+- (id) start:(NSString *) fileName {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        [self __internalStart];
+        [self __internalStart:fileName];
     });
 
     return self;
 }
 
-- (id) __internalStart {
+- (id) __internalStart:(NSString *) fileName {
     //read from plist file
-    NSString *chainDataPath = [[NSBundle mainBundle]  pathForResource:@"chain" ofType:@"plist"];
+    NSString *file = fileName?:@"chain";
+    NSString *chainDataPath = [[NSBundle mainBundle]  pathForResource:file ofType:@"plist"];
     NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:chainDataPath];
     [self registerChains:dictionary];
     
@@ -132,7 +155,7 @@ static BOOL G_CHAIN_NODE_DEBUG = NO;
     return [self.chains valueForKey:chainIdentifier];
 }
 
-- (void) runChain:(NSString *) identifier {
+- (void) runChain:(NSString *) identifier userInfo:(NSDictionary *) info{
     NSArray *identifiers = [identifier componentsSeparatedByString:@":"];
     if ([identifiers count] == 0) {
         return;
@@ -151,6 +174,7 @@ static BOOL G_CHAIN_NODE_DEBUG = NO;
     } else {
         node = [nodes firstObject];
     }
+    node.userInfo = info;
     
     if (G_CHAIN_NODE_DEBUG) {
         NSLog(@"开始执行链路 %@ : %@", identifier, node);
