@@ -173,6 +173,7 @@
 				627FDAC42424F0B400A68929 /* Sources */,
 				627FDAC52424F0B400A68929 /* Frameworks */,
 				627FDAC62424F0B400A68929 /* Resources */,
+				620D96B3242C4FCF0081FFD2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -288,6 +289,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		620D96B3242C4FCF0081FFD2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\ncd ${SRCROOT}/\ncd ../Products/BGuide.bundle/\ntarget=`pwd`\necho $target\nrm -rf *\n\nsource=${SRCROOT}/BGChain/Shell/Guide/WSCN/\necho $source\n\ncp -r $source $target\n\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		627FDAC42424F0B400A68929 /* Sources */ = {
