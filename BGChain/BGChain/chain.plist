@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>pop</key>
+	<array>
+		<dict>
+			<key>class</key>
+			<string>MNodeTest</string>
+			<key>name</key>
+			<string>test1</string>
+			<key>index</key>
+			<integer>100</integer>
+		</dict>
+		<dict>
+			<key>class</key>
+			<string>MNodeTest</string>
+			<key>name</key>
+			<string>test2</string>
+			<key>index</key>
+			<integer>100</integer>
+		</dict>
+	</array>
+	<key>ad</key>
+	<array>
+		<dict>
+			<key>class</key>
+			<string>MNodeTest</string>
+			<key>name</key>
+			<string>test3</string>
+			<key>index</key>
+			<integer>10</integer>
+		</dict>
+		<dict>
+			<key>class</key>
+			<string>MNodeTest</string>
+			<key>name</key>
+			<string>test4</string>
+			<key>index</key>
+			<integer>10</integer>
+		</dict>
+	</array>
+</dict>
+</plist>
