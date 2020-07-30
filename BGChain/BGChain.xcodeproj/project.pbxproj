@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		622A1AAE24D1838500AD3B58 /* MSTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 622A1AAA24D1838400AD3B58 /* MSTableViewController.m */; };
+		622A1AAF24D1838500AD3B58 /* MExcelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 622A1AAB24D1838500AD3B58 /* MExcelView.m */; };
 		627FDACD2424F0B400A68929 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 627FDACC2424F0B400A68929 /* AppDelegate.m */; };
 		627FDAD02424F0B400A68929 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 627FDACF2424F0B400A68929 /* SceneDelegate.m */; };
 		627FDAD32424F0B400A68929 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 627FDAD22424F0B400A68929 /* ViewController.m */; };
@@ -40,6 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		622A1AAA24D1838400AD3B58 /* MSTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSTableViewController.m; sourceTree = "<group>"; };
+		622A1AAB24D1838500AD3B58 /* MExcelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MExcelView.m; sourceTree = "<group>"; };
+		622A1AAC24D1838500AD3B58 /* MExcelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MExcelView.h; sourceTree = "<group>"; };
+		622A1AAD24D1838500AD3B58 /* MSTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSTableViewController.h; sourceTree = "<group>"; };
 		627FDAC82424F0B400A68929 /* BGChain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BGChain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		627FDACB2424F0B400A68929 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		627FDACC2424F0B400A68929 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -122,6 +128,10 @@
 				627FDACF2424F0B400A68929 /* SceneDelegate.m */,
 				627FDAD12424F0B400A68929 /* ViewController.h */,
 				627FDAD22424F0B400A68929 /* ViewController.m */,
+				622A1AAD24D1838500AD3B58 /* MSTableViewController.h */,
+				622A1AAA24D1838400AD3B58 /* MSTableViewController.m */,
+				622A1AAC24D1838500AD3B58 /* MExcelView.h */,
+				622A1AAB24D1838500AD3B58 /* MExcelView.m */,
 				627FDAD42424F0B400A68929 /* Main.storyboard */,
 				627FDAD72424F0B600A68929 /* Assets.xcassets */,
 				627FDAD92424F0B600A68929 /* LaunchScreen.storyboard */,
@@ -173,7 +183,6 @@
 				627FDAC42424F0B400A68929 /* Sources */,
 				627FDAC52424F0B400A68929 /* Frameworks */,
 				627FDAC62424F0B400A68929 /* Resources */,
-				620D96B3242C4FCF0081FFD2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -290,32 +299,14 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		620D96B3242C4FCF0081FFD2 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\ncd ${SRCROOT}/\ncd ../Products/BGuide.bundle/\ntarget=`pwd`\necho $target\nrm -rf *\n\nsource=${SRCROOT}/BGChain/Shell/Guide/WSCN/\necho $source\n\ncp -r $source $target\n\n\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		627FDAC42424F0B400A68929 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				627FDB082424F10800A68929 /* BGChanin+Delay.m in Sources */,
+				622A1AAE24D1838500AD3B58 /* MSTableViewController.m in Sources */,
+				622A1AAF24D1838500AD3B58 /* MExcelView.m in Sources */,
 				627FDB062424F10800A68929 /* BGChanin.m in Sources */,
 				627FDAD32424F0B400A68929 /* ViewController.m in Sources */,
 				627FDACD2424F0B400A68929 /* AppDelegate.m in Sources */,
@@ -426,7 +417,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -478,7 +469,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -493,6 +484,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 432R882V66;
 				INFOPLIST_FILE = BGChain/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -510,6 +502,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 432R882V66;
 				INFOPLIST_FILE = BGChain/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
